@@ -23,6 +23,3 @@ ren OpenSSH-Win64 openssh
 :: extract vcxsrv
 7zip\7z.exe x -ovcxsrv tmp\vcxsrv.exe
 rmdir /S /Q vcxsrv\$PLUGINSDIR
-
-:: repackage with startup script
-7zip\7z.exe a winX.zip openssh vcxsrv winX.bat help.txt

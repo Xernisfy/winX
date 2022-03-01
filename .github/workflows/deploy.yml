@@ -17,11 +17,15 @@ jobs:
 
       # download dependencies
       - name: build
-        run: build.bat
+        run: .\build.bat
 
       # upload zipped app
       - name: upload
         uses: actions/upload-artifact@v2
         with:
           name: winX
-          path: winX.zip
+          path: |
+            openssh
+            vcxsrv
+            help.txt
+            winX.bat
