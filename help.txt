@@ -1,0 +1,9 @@
+usage: winX <host>
+
+When connecting to localhost, add the host to your %USERPROFILE%\.ssh\config like this:
+Host ubuntu
+  HostName 127.0.0.1
+  Port 12345
+  User myuser
+
+example: winX ubuntu
