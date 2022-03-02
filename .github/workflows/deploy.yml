@@ -10,14 +10,14 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       # checkout repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
 
       # download dependencies
       - name: build
-        run: .\build.bat
+        run: .\build.sh
 
       # upload zipped app
       - name: upload
