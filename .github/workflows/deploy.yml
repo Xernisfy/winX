@@ -15,11 +15,27 @@ jobs:
       # checkout repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
 
-      # download dependencies
-      - name: build
-        run: ./build.sh
+      - name: install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl p7zip-full
 
-      # upload zipped app
+      - name: download dependencies
+        run: |
+          curl -L -o /tmp/openssh.zip https://github.com/PowerShell/Win32-OpenSSH/releases/download/V8.6.0.0p1-Beta/OpenSSH-Win64.zip
+          curl -L -o /tmp/vcxsrv.exe https://sourceforge.net/projects/vcxsrv/files/latest/download
+
+      - name: extract openssh
+        run: |
+          7z x /tmp/openssh.zip
+          mv OpenSSH-Win64 openssh
+
+      - name: extract vcxsrv
+        run: |
+          7z x -ovcxsrv /tmp/vcxsrv.exe
+          rm -rf ./vcxsrv/\$PLUGINSDIR/
+          rm -rf ./vcxsrv/fonts/
+
       - name: upload
         uses: actions/upload-artifact@v2
         with:
