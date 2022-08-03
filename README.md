@@ -12,6 +12,6 @@ Consider adding the directory to your PATH for easy use.
     winX <host>
 where &lt;host&gt; can be
 
-- a hostname configured in USERPROFILE%\\.ssh\\config (recommended for connection to localhost)
+- a hostname configured in ```%USERPROFILE%\\.ssh\\config``` (recommended for connection to localhost)
 
-- a connection string with the syntax user@host:port
+- a connection string with the syntax ```user@host:port```
